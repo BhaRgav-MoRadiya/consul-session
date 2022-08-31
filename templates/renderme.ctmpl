@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Consul Services</title>
+	<meta http-equiv="refresh" content="5">
+</head>
+
+<body>
+	<h2>Services Registered to Consul </h2>
+	<h4>The code will reload after 5s.</h4>
+	<table>
+  	<tr>
+
+    	<th>Node Name</th>
+    	<th>Service Name</th>
+    	<th>Ip Address</th>
+    	<th>Port</th>
+  	</tr>
+	{{- range services  }}
+	{{ range service .Name}}
+  	<tr>
+  	<td>{{.Node}} </td>
+  	<td>{{.Name}} </td>
+  	<td>{{ .Address }}</td>
+  	<td>{{ .Port }}</td>
+	{{- end }}
+	</tr>
+	{{- end}}
+	</table>
+</body>
+
+</html>
